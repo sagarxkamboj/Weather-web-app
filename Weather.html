@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Data</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: rgb(52, 49, 45);
+      background: linear-gradient(45deg, #383d3b 0%, #7c7c7c 100%);
+    }
+    h1 {
+      text-shadow: 10px 10px 10px rgb(19, 21, 19);
+      color: rgb(255, 255, 255);
+    }
+    .container {
+      background-color: rgb(0, 0, 0);
+      height: 19vh;
+      width: 40vh;
+      border: 2px double white;
+      border-radius: 35%;
+    }
+    .container:hover {
+      box-shadow: 0 0 20px black;
+      transition: 0.3s;
+    }
+    .container:focus-within {
+      box-shadow: 0 0 20px black;
+      transition: 0.3s;
+    }
+    .container:active {
+      box-shadow: 0 0 20px black;
+      transition: 0.3s;
+    }
+    button {
+      height: 40px;
+      border: 2px solid black;
+      border-radius: 10px;
+      background-color: rgb(250, 251, 252);
+      margin-top: 20px;
+    }
+    input {
+      height: 40px;
+      width: 65%;
+      border: 2px solid black;
+      border-radius: 20px;
+      padding-left: 10px;
+      box-sizing: border-box;
+    }
+    input:focus {
+      outline: none;
+      border-color: blue;
+    }
+    button:hover {
+      background-color: rgb(55, 93, 190);
+      cursor: pointer;
+      color: white;
+    }
+    button:active {
+      background-color: lightgreen;
+    }
+    input::placeholder {
+      color: gray;
+      font-style: italic;
+    }
+    input:focus::placeholder {
+      color: transparent;
+    }
+    .hidden {
+      display: none;
+    }
+    #weather-info {
+      margin-top: 20px;
+    }
+    #error-message {
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    #city-name {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    #temperature {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    #description {
+      font-size: 1.3rem;
+      color: rgb(17, 17, 17);
+      
+    }
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .footer-section {
+      position: absolute;
+      bottom: 0px;
+      width: 90%;
+      text-align: center;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      padding: 10px;
+      background-color: #1d1a1a;
+      font-size: 0.8rem;
+      color: #fff;
+    }
+    .header-section {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      height: fit-content;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+    .weather-icon-container img {
+      border-radius: 50%;
+      overflow: hidden;
+      height: 110px;
+      width: 110px;
+    }
+    .weather-icon-container img:hover {
+      transform: scale(1.1);
+      transition: 0.3s;
+    }
+  </style>
+  <body>
+    <header class="header-section">
+      <h1>Weather App</h1>
+      <div class="weather-icon-container">
+        <img
+        src="https://imgs.search.brave.com/YRzM4SRqGfhoCRiXFUer8A4hVoOvvtFWtmufn92eQBw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEzLzIzLzYzLzAw/LzM2MF9GXzEzMjM2/MzAwMTVfY1dQSXVi/YUR4bE1CQzB4Nkht/M2E0Y25QR1pkOWpQ/YTcuanBn"
+        alt="Weather Icon" width="100" height="100" class="weather-icon"
+      </div>
+      <p>Get the Real Time weather information for your city</p>
+    </header>
+    <div class="container">
+      <h1>Get Details</h1>
+      <div class="input-container">
+        <input
+          type="text"
+          name="Enter City"
+          id="city-input"
+          placeholder="Enter City name"
+        />
+        <button id="get-weather-btn">Get Weather</button>
+      </div>
+      <div id="weather-info" class="hidden">
+        <h2 id="city-name"></h2>
+        <p id="temperature"></p>
+        <p id="description"></p>
+      </div>
+      <p id="error-message" class="hidden">city not found. Please try again</p>
+    </div>
+    <footer class="footer-section">Made with ❤️ by Sagar Kamboj</footer>
+    <script src="weather.js"></script>
+  </body>
+</html>
